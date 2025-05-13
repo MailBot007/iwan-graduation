@@ -1,0 +1,1257 @@
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iwan's Graduation Celebration</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: #000;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 800px;
+            overflow: hidden;
+            background: #000;
+        }
+        
+        .glitch-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .glitch {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 800"><rect x="0" y="0" width="100%" height="100%" fill="%23240041"/></svg>');
+            background-size: cover;
+            opacity: 0.8;
+        }
+        
+        .glitch:nth-child(2) {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 800"><rect x="0" y="0" width="100%" height="100%" fill="%235c0099"/></svg>');
+            opacity: 0.5;
+            animation-delay: 0.1s;
+        }
+        
+        .glitch:nth-child(3) {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 800"><rect x="0" y="0" width="100%" height="100%" fill="%23000000"/></svg>');
+            opacity: 0.2;
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-5px, 5px);
+            }
+            40% {
+                transform: translate(-5px, -5px);
+            }
+            60% {
+                transform: translate(5px, 5px);
+            }
+            80% {
+                transform: translate(5px, -5px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+        
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, rgba(92, 0, 153, 0.1) 1px, transparent 1px), 
+                              linear-gradient(to bottom, rgba(92, 0, 153, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 80%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .hero-eyebrow {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 20px;
+            color: #D4AF37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+        }
+        
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        .hero-title {
+            font-size: 130px;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 30px;
+            position: relative;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #D4AF37, #FFD700, #B8860B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+        
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.7), 0 0 20px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.6);
+            }
+            100% {
+            }
+        }
+        
+        @keyframes glitchText {
+            0% {
+                transform: translate(0);
+            }
+            1% {
+                transform: translate(-3px, 1px);
+                color: #8A2BE2;
+            }
+            2% {
+                transform: translate(3px, -1px);
+                color: #FF00FF;
+            }
+            3% {
+                transform: translate(0);
+                color: transparent;
+            }
+            80% {
+                transform: translate(0);
+            }
+            81% {
+                transform: translate(-3px, 1px);
+                color: #8A2BE2;
+            }
+            82% {
+                transform: translate(3px, -1px);
+                color: #FF00FF;
+            }
+            83% {
+                transform: translate(0);
+                color: transparent;
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+        
+        .hero-date {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 50px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            letter-spacing: 3px;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+        
+        .arrow-down {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #8A2BE2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .arrow-down svg {
+            fill: none;
+            stroke: #8A2BE2;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        /* Photo Section */
+        .photo-section {
+            position: relative;
+            padding: 80px 20px;
+            background: #0d0d0d;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .photo-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .camera-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .camera-icon-floating {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0);
+            }
+        }
+        
+        .car-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .car-icon-floating {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 12s infinite linear;
+        }
+        
+        .photo-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .photo-frame {
+            width: 400px;
+            height: 500px;
+            background: #1a1a1a;
+            border: 10px solid #333;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.3), 0 0 60px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            transform: rotate(-3deg);
+            transition: all 0.3s ease;
+            margin-right: 60px;
+        }
+        
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.5), 0 0 80px rgba(0, 0, 0, 0.5);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 18px;
+            background: #111;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .photo-frame::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            background: linear-gradient(45deg, transparent 48%, #8A2BE2 48%, #8A2BE2 52%, transparent 52%);
+            background-size: 20px 20px;
+            animation: borderGlow 3s infinite linear;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        @keyframes borderGlow {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 20px 20px;
+            }
+        }
+        
+        .photo-info {
+            max-width: 600px;
+        }
+        
+        .photo-name {
+            font-size: 70px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1;
+            background: linear-gradient(90deg, #D4AF37, #FFD700, #B8860B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            text-transform: uppercase;
+        }
+        
+        .photo-name::after {
+            content: "IWAN STEINMANN";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            color: rgba(255, 0, 255, 0.2);
+            z-index: -1;
+        }
+        
+   .photo-subtext {
+    text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+    padding: 10px;
+    border-left: 3px solid #D4AF37;
+    font-size: 24px; /* Increased from 20px */
+    font-weight: 400; /* Changed from 300 */
+    margin-bottom: 30px;
+    opacity: 1; /* Changed from 0.8 */
+    line-height: 1.6;
+    color: #ffffff; /* Added explicit white color */
+}
+        
+        .school-name {
+            display: inline-block;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #240041, #5c0099);
+            border: 1px solid #8A2BE2;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .school-name::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            20% {
+                left: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        
+        /* Details Section */
+        .details-section {
+            padding: 80px 20px;
+            background: #0d0d0d;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .details-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, rgba(138, 43, 226, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        .details-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 40px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, #FF00FF, #8A2BE2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #FF00FF, #8A2BE2);
+        }
+        
+        .open-house-subtitle {
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #D4AF37;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .details-grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .detail-card {
+            background: rgba(26, 26, 26, 0.5);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
+            border-color: #8A2BE2;
+        }
+        
+        .detail-card:hover .detail-icon {
+            transform: scale(1.1) rotate(10deg);
+            opacity: 0.8;
+        }
+        
+        .detail-icon-container {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #240041, #5c0099);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .detail-icon-container::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            background: conic-gradient(transparent, #8A2BE2, transparent);
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .detail-icon {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .detail-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .detail-title::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: #D4AF37;
+        }
+        
+        .detail-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .detail-highlight {
+            font-weight: 700;
+            color: #fff;
+        }
+        
+        /* Verse Section */
+        .verse-section {
+            padding: 80px 20px;
+            background: #080808;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .verse-shape {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.2) 0%, rgba(138, 43, 226, 0) 70%);
+        }
+        
+        .verse-shape-1 {
+            top: -200px;
+            left: -200px;
+        }
+        
+        .verse-shape-2 {
+            bottom: -200px;
+            right: -200px;
+        }
+        
+        .verse-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(26, 26, 26, 0.5);
+            border: 1px solid #333;
+            border-radius: 15px;
+            padding: 60px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .verse-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(138, 43, 226, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+            pointer-events: none;
+        }
+        
+        .verse-quote {
+            font-size: 28px;
+            line-height: 1.6;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .verse-quote::before,
+        .verse-quote::after {
+            content: '"';
+            font-size: 70px;
+            font-family: Georgia, serif;
+            position: absolute;
+            color: rgba(138, 43, 226, 0.3);
+        }
+        
+        .verse-quote::before {
+            top: -20px;
+            left: -20px;
+        }
+        
+        .verse-quote::after {
+            bottom: -50px;
+            right: -20px;
+        }
+        
+        .verse-reference {
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            color: #8A2BE2;
+            letter-spacing: 2px;
+        }
+        
+        /* RSVP Section */
+        .rsvp-section {
+            padding: 80px 20px;
+            background: #0d0d0d;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .rsvp-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .rsvp-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .rsvp-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #D4AF37, #FFD700, #B8860B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .rsvp-subtitle {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 50px;
+        }
+        
+        .rsvp-box {
+            background: rgba(26, 26, 26, 0.7);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 40px;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .rsvp-box::before {
+            content: "";
+            position: absolute;
+            top: -150%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent 0%,
+                transparent 40%,
+                rgba(138, 43, 226, 0.2) 50%,
+                transparent 60%,
+                transparent 100%
+            );
+            transform: rotate(45deg);
+            animation: shine 4s infinite linear;
+            pointer-events: none;
+        }
+        
+        .rsvp-date {
+            font-size: 20px;
+            font-weight: 600;
+            color: #8A2BE2;
+            margin-bottom: 30px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-method {
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            border-color: #8A2BE2;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 15px;
+            opacity: 0.8;
+        }
+        
+        .contact-label {
+            font-size: 14px;
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+        
+        .contact-value {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .rsvp-note {
+            margin-top: 40px;
+            font-size: 16px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+        
+        /* For the footer section */
+.footer-section {
+    padding: 60px 20px;
+            background: #0d0d0d;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .footer-accent {
+            height: 10px;
+            width: 300px;
+            margin: 0 auto 40px;
+            background: linear-gradient(to right, #002E6D 50%, #971B2F 50%);
+            position: relative;
+        }
+        
+        .footer-accent::before,
+        .footer-accent::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 30px;
+            height: 100%;
+            background: #fff;
+        }
+        
+        .footer-accent::before {
+            left: 0;
+        }
+        
+        .footer-accent::after {
+            right: 0;
+        }
+        
+        @keyframes accentPulse {
+            from {
+                opacity: 0.3;
+            }
+            to {
+                opacity: 0.8;
+            }
+        }
+        
+        .footer-text {
+    font-size: 20px; /* Increased from 16px */
+    opacity: 1; /* Changed from 0.7 */
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    font-weight: 500; /* Added font weight */
+    color: #ffffff; /* Added explicit white color */
+}
+
+        
+        .icons-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .icon-item {
+            width: 60px;
+            height: 60px;
+            background: rgba(26, 26, 26, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 1px solid #333;
+        }
+        
+        .icon-item:hover {
+            transform: translateY(-5px) rotate(10deg);
+            background: rgba(212, 175, 55, 0.2);
+            border-color: #D4AF37;
+        }
+        
+        .icon-item svg {
+            width: 30px;
+            height: 30px;
+            opacity: 0.7;
+        }
+        
+        .icon-item:hover svg {
+            opacity: 1;
+        }
+        
+        .future-text {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #8A2BE2;
+            margin-top: 30px;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 100px;
+            }
+            
+            .photo-frame {
+                margin-right: 0;
+                margin-bottom: 60px;
+            }
+            
+            .photo-content {
+                flex-direction: column;
+            }
+            
+            .photo-name {
+                font-size: 60px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 70px;
+            }
+            
+            .hero-eyebrow {
+                font-size: 18px;
+            }
+            
+            .hero-date {
+                font-size: 22px;
+            }
+            
+            .photo-frame {
+                width: 300px;
+                height: 400px;
+            }
+            
+            .photo-name {
+                font-size: 50px;
+            }
+            
+            .details-grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .verse-container {
+                padding: 40px 30px;
+            }
+            
+            .verse-quote {
+                font-size: 22px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 50px;
+            }
+            
+            .hero-eyebrow {
+                font-size: 16px;
+                letter-spacing: 5px;
+            }
+            
+            .photo-frame {
+                width: 250px;
+                height: 330px;
+            }
+            
+            .photo-name {
+                font-size: 40px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .verse-quote {
+                font-size: 18px;
+            }
+            
+            .rsvp-title {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="glitch-container">
+                <div class="glitch"></div>
+                <div class="glitch"></div>
+                <div class="glitch"></div>
+            </div>
+            <div class="hero-grid"></div>
+            <div class="video-overlay"></div>
+            
+            <div class="hero-content">
+                <div class="hero-eyebrow">Class of 2025</div>
+                <h1 class="hero-title">
+                    <span class="glitch-text">IWAN</span>
+                </h1>
+                <div class="hero-date">SATURDAY, MAY 31ST 2025 • 2PM-6PM</div>
+            </div>
+            
+            <div class="scroll-down">
+                <div class="arrow-down">
+                    <svg width="20" height="20" viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5"></path>
+                    </svg>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Photo Section -->
+        <section class="photo-section">
+            <div class="photo-bg"></div>
+            
+            <div class="camera-icons">
+                <svg class="camera-icon-floating" style="top: 10%; left: 5%; width: 100px; height: 100px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H7L9 3H15L17 6H21C21.5304 6 22.0391 6.21071 22.4142 6.58579C22.7893 6.96086 23 7.46957 23 8V19Z" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                
+                <svg class="camera-icon-floating" style="top: 70%; left: 80%; width: 120px; height: 120px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H7L9 3H15L17 6H21C21.5304 6 22.0391 6.21071 22.4142 6.58579C22.7893 6.96086 23 7.46957 23 8V19Z" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <div class="car-icons">
+                <svg class="car-icon-floating" style="top: 30%; right: 5%; width: 130px; height: 130px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 12H2" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5.45 5.11L2 12V19C2 19.5304 2.21071 20.0391 2.58579 20.4142C2.96086 20.7893 3.46957 21 4 21H20C20.5304 21 21.0391 20.7893 21.4142 20.4142C21.7893 20.0391 22 19.5304 22 19V12L18.55 5.11C18.3844 4.77679 18.1292 4.49637 17.813 4.30028C17.4967 4.10419 17.1321 4.0002 16.76 4H7.24C6.86792 4.0002 6.50326 4.10419 6.18704 4.30028C5.87083 4.49637 5.61558 4.77679 5.45 5.11V5.11Z" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 16H6.01" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 16H10.01" stroke="#8A2BE2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            
+            <div class="photo-content">
+                <div class="photo-frame">
+                    <img src="https://dl.dropboxusercontent.com/scl/fi/yty31oppnr60neyyp7hg9/iwan.jpg?rlkey=bo9cu52xdln0ioqor55z48cr7&st.png" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                
+                <div class="photo-info">
+                    <h2 class="photo-name">IWAN STEINMANN</h2>
+                    <p class="photo-subtext">Ferdi & Mari Steinmann invite you to celebrate the graduation of their son, the family "glue" and an "old soul" with a passion for capturing life's moments.</p>
+                    <div class="school-name">Blackstone Valley Regional High School - Multimedia</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Details Section -->
+        <section class="details-section">
+            <div class="details-grid"></div>
+            
+            <div class="details-container">
+                <h3 class="section-title">Event Details</h3>
+                <div class="open-house-subtitle">Open House</div>
+                
+                <div class="details-grid-container">
+                    <div class="detail-card">
+                        <div class="detail-icon-container">
+                            <svg class="detail-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 2V6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 2V6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 10H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h4 class="detail-title">When</h4>
+                        <div class="detail-content">
+                            <span class="detail-highlight">Saturday, May 31st, 2025</span><br>
+                            2:00 PM - 6:00 PM
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon-container">
+                            <svg class="detail-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h4 class="detail-title">Where</h4>
+                        <div class="detail-content">
+                            <span class="detail-highlight">35 Field Pond Rd</span><br>
+                            Milford, MA 01757
+                        </div>
+                    </div>
+                    
+<div class="detail-card">
+    <div class="detail-icon-container">
+        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 12H2" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5.45 5.11L2 12V19C2 19.5304 2.21071 20.0391 2.58579 20.4142C2.96086 20.7893 3.46957 21 4 21H20C20.5304 21 21.0391 20.7893 21.4142 20.4142C21.7893 20.0391 22 19.5304 22 19V12L18.55 5.11C18.3844 4.77679 18.1292 4.49637 17.813 4.30028C17.4967 4.10419 17.1321 4.0002 16.76 4H7.24C6.86792 4.0002 6.50326 4.10419 6.18704 4.30028C5.87083 4.49637 5.61558 4.77679 5.45 5.11V5.11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 16H6.01" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 16H10.01" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    <h4 class="detail-title">Celebration</h4>
+    <div class="detail-content">
+        <span class="detail-highlight">Open House</span><br>
+        Weather permitting
+    </div>
+</div>
+                    
+                    <div class="detail-card">
+                        <div class="detail-icon-container">
+                            <svg class="detail-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12H22" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2V2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h4 class="detail-title">Next Chapter</h4>
+                        <div class="detail-content">
+                            <span class="detail-highlight">Liberty University</span><br>
+                            Photography & Business
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+     <!-- School Logos Section -->
+<div style="display: flex; justify-content: center; align-items: center; gap: 100px; margin: 50px auto; padding: 30px; text-align: center; width: 100%; max-width: 800px;">
+    <!-- BVT Logo -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/800ulqjzhz70j82023od4/bvt.png?rlkey=wbafvfe45oiyf43ekco4u8fm7&st.png" alt="BVT Logo" style="width: 200px; height: auto; margin-bottom: 15px;">
+        <div style="color: #D4AF37; font-weight: bold; font-size: 16px;">High School</div>
+    </div>
+    
+    <!-- Liberty Logo -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/f2u41111t4fzhk4c07u36/liberty.png?rlkey=dojktrkwlazq53n034wdb8p2w&.png" alt="Liberty Logo" style="width: 200px; height: auto; margin-bottom: 15px;">
+        <div style="color: #D4AF37; font-weight: bold; font-size: 16px;">University</div>
+    </div>
+</div>
+        
+        <!-- RSVP Section -->
+        <section class="rsvp-section">
+            <div class="rsvp-bg"></div>
+            
+            <div class="rsvp-container">
+                <h3 class="rsvp-title">RSVP</h3>
+                <div class="rsvp-subtitle">Join us in celebrating Iwan's accomplishments and future</div>
+                
+                <div class="rsvp-box">
+                    <div class="rsvp-date">Please respond by May 29th, 2025</div>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-method">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 6l9 6 9-6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="contact-label">Email</div>
+                            <div class="contact-value"><a href="mailto:Ferdi_steinmann@yahoo.com?subject=RSVP for Iwan's Graduation" style="color: white; text-decoration: underline;">Ferdi_steinmann@yahoo.com</a></div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="contact-label">Call/Text</div>
+                            <div class="contact-value"><a href="sms:9492579226" style="color: white; text-decoration: underline;">949-257-9226</a></div>
+                        </div>
+                    </div>
+                    
+                    <div class="rsvp-note">
+    We look forward to celebrating with you!
+</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer Section -->
+        <section class="footer-section">
+            <div class="footer-accent"></div>
+            
+            <div class="footer-text">
+                Celebrating our "old soul" - the glue of the Steinmann family, a passionate photographer, car enthusiast, and PC builder with strong Christian values.
+            </div>
+            
+            <div class="icons-row">
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H7L9 3H15L17 6H21C21.5304 6 22.0391 6.21071 22.4142 6.58579C22.7893 6.96086 23 7.46957 23 8V19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 12H2" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5.45 5.11L2 12V19C2 19.5304 2.21071 20.0391 2.58579 20.4142C2.96086 20.7893 3.46957 21 4 21H20C20.5304 21 21.0391 20.7893 21.4142 20.4142C21.7893 20.0391 22 19.5304 22 19V12L18.55 5.11C18.3844 4.77679 18.1292 4.49637 17.813 4.30028C17.4967 4.10419 17.1321 4.0002 16.76 4H7.24C6.86792 4.0002 6.50326 4.10419 6.18704 4.30028C5.87083 4.49637 5.61558 4.77679 5.45 5.11V5.11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 16H6.01" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 16H10.01" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                
+                <div class="icon-item">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 3H4C2.89543 3 2 3.89543 2 5V15C2 16.1046 2.89543 17 4 17H20C21.1046 17 22 16.1046 22 15V5C22 3.89543 21.1046 3 20 3Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 21H16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 17V21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="future-text">Liberty University Class of 2029</div>
+        </section>
+    </div>
+</body>
+</html>
